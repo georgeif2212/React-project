@@ -36,3 +36,8 @@
     transform: rotate(360deg);
   }
 }
+
+.itemCount span{
+  color: black;
+  padding: 1rem;
+}
