@@ -1,15 +1,17 @@
 import Container from "react-bootstrap/Container";
+import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 import { ItemDetail } from "./ItemDetail";
 
 export const ItemDetailContainer = (props) => {
-  const [product, setProduct] = useState([]);
+  const [product, setProduct] = useState(null);
+  const {id} = useParams();
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
+    fetch(`https://fakestoreapi.com/products/${id}`)
       .then((response) => response.json())
       .then((data) => {
-        setProduct(data[4]);
+        setProduct(data);
       })
       .catch((error) => {
         console.error("Error", error);
