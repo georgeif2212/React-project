@@ -1,0 +1,26 @@
+.color {
+  &-1 {
+    color: rgba(0, 0, 0, 0.8);
+  }
+  &-2 {
+    color: rgba(0, 0, 0, 0.7);
+  }
+  &-3 {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  &-white {
+    &_1 {
+      color: rgba(255, 255, 255, 1);
+      font-weight: 600;
+    }
+    &_2 {
+      color: rgba(255, 255, 255, 0.8);
+      font-weight: 400;
+    }
+    &_3 {
+      color: rgba(255, 255, 255, 0.6);
+      font-weight: 300;
+    }
+  }
+}

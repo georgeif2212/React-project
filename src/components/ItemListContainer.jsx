@@ -30,9 +30,9 @@ export const ItemListContainer = (props) => {
   return (
     <Container className="mt-3">
       <h1>{props.greeting}</h1>
-      <div style={{display:"flex",flexWrap:"wrap",gap:"20px"}}>
+      <section className="products">
         <ItemList products={products}/>
-      </div>
+      </section>
     </Container>
   );
 };

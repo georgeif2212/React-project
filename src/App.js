@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
-import "./App.css";
+
 import { ItemListContainer } from "./components/ItemListContainer";
 import { ItemDetailContainer } from "./components/ItemDetailContainer";
 import { NavBar } from "./components/NavBar";
@@ -11,7 +11,7 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={<ItemListContainer greeting="Hola, este es mi e-commerce" />}
+          element={<ItemListContainer greeting="Bienvenido!" />}
         />
         <Route
           path="/category/:id"
