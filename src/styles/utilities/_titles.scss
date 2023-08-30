@@ -24,3 +24,39 @@
     }
   }
 }
+
+.size{
+  &-small {
+    &_s{
+      font-size: 0.375em;
+    }
+    &_m{
+      font-size: 0.625em;
+    }
+    &_l{
+      font-size: 0.875em !important;
+    }
+  }
+  &-medium{
+    &_s{
+      font-size: 1em !important;
+    }
+    &_m{
+      font-size: 1.375em !important;
+    }
+    &_l{
+      font-size: 1.75em !important;
+    }
+  }
+  &-large{
+    &_s{
+      font-size: 2.8em;
+    }
+    &_m{
+      font-size: 3.5em;
+    }
+    &_l{
+      font-size: 4.5em ;
+    }
+  }
+}

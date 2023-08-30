@@ -27,6 +27,7 @@ export const ItemListContainer = (props) => {
       });
   }, []);
 
+  if(!products) return <div>Loading ...</div>;
   return (
     <Container className="mt-3">
       <h1>{props.greeting}</h1>

@@ -22,7 +22,7 @@ export const ItemDetailContainer = (props) => {
 
   return (
     <Container className="mt-3">
-      <h1>{props.greeting}</h1>
+      
       <ItemDetail product={product}/>
     </Container>
   );
