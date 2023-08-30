@@ -22,7 +22,6 @@ export const ItemDetailContainer = (props) => {
 
   return (
     <Container className="mt-3">
-      
       <ItemDetail product={product}/>
     </Container>
   );

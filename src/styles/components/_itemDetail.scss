@@ -1,0 +1,13 @@
+.itemDetail {
+  display: grid;
+  grid-template-columns: 60% auto;
+  gap: 20px;
+  justify-items: center;
+  padding-top: 3em;
+  img {
+    
+    width: 80%;
+    max-width: 100%;
+    height: auto;
+  }
+}
