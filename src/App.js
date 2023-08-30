@@ -15,7 +15,7 @@ function App() {
         />
         <Route
           path="/category/:id"
-          element={<ItemListContainer greeting="Hola, este es category/:id" />}
+          element={<ItemListContainer greeting="Categoría: " />}
         />
         <Route path="/item/:id" element={<ItemDetailContainer />} />
         <Route path="*" element={<h2>Página no encontrada</h2>} />
