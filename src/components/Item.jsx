@@ -2,12 +2,12 @@ import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 export const Item = ({ product }) => {
-  let valorRedondeado = (product.price * 16.75).toFixed(2);
+  let valorRedondeado = (product.precio * 16.75).toFixed(2);
   let valorRedondeadoNoDiscount = (valorRedondeado * 1.27).toFixed(2);
   let nameShort;
-  product.title.length > 45
-    ? (nameShort = product.title.slice(0, 50) + "...")
-    : (nameShort = product.title);
+  product.nombre.length > 45
+    ? (nameShort = product.nombre.slice(0, 50) + "...")
+    : (nameShort = product.nombre);
 
   return (
     <Card
@@ -17,7 +17,7 @@ export const Item = ({ product }) => {
     >
       <Card.Img
         variant="top"
-        src={product.image}
+        src={product.imagen}
         className="product"
         style={{ objectFit: "contain", width: "100%", height: "50%" }}
       />
