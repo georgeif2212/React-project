@@ -5,7 +5,7 @@ import { getFirestore, getDoc, doc } from "firebase/firestore";
 import { ItemDetail } from "./ItemDetail";
 
 export const ItemDetailContainer = (props) => {
-  const [product, setProduct] = useState(null);
+  const [product, setProduct] = useState(true);
   const { id } = useParams();
   // useEffect(() => {
   //   fetch(`https://fakestoreapi.com/products/${id}`)

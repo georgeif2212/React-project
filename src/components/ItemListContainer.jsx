@@ -6,16 +6,17 @@ import {getFirestore,getDocs,collection} from 'firebase/firestore'
 
 
 export const ItemListContainer = (props) => {
+  const [loading, setLoading]=useState(true);
   const [products, setProducts] = useState([]);
   const {id} = useParams();
   useEffect(()=>{
     const db = getFirestore();
     const refCollection = collection(db,"productos");
     getDocs(refCollection).then((snapshot)=>{
-      if(snapshot.size===0)console.log("no results");
-      
+      if(snapshot.size===0)console.log("no results");      
       else{
         setProducts(snapshot.docs.map((doc)=>{
+          setLoading(false);
           return({id:doc.id,...doc.data()});
         }));
       }
@@ -42,7 +43,7 @@ export const ItemListContainer = (props) => {
   //     });
   // }, []);
 
-  if(!products) return <div>Loading ...</div>;
+  if(loading) return <div>Loading ...</div>;
   return (
     <Container className="mt-3">
       <h1>{props.greeting}</h1>
