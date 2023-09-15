@@ -6,7 +6,7 @@ import { CartContext } from "../contexts/CartContext";
 import { CartItem } from "./CartItem";
 
 export const Cart = () => {
-  const { items } = useContext(CartContext);
+  const { items, addItem, removeItem, clear } = useContext(CartContext);
 
   const total = () => {
     return items.reduce(
@@ -21,7 +21,13 @@ export const Cart = () => {
       <Row>
         <Col lg="8">
           {items.map((item) => (
-            <CartItem key={item.id} item={item}/>
+            <CartItem
+              key={item.id}
+              item={item}
+              addItem={addItem}
+              removeItem={removeItem}
+              clear={clear}
+            />
           ))}
         </Col>
         <Col lg="4">

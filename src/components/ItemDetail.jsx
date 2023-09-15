@@ -15,7 +15,6 @@ export const ItemDetail = ({ product }) => {
         <div className="">
           <h1 className="color-1 text-right">
             {product.nombre}
-            {onAdd}
           </h1>
 
           <h2 className="color-2">$ {valorRedondeado}</h2>

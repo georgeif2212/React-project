@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { getFirestore, getDoc, doc } from "firebase/firestore";
 import { ItemDetail } from "./ItemDetail";
 
-export const ItemDetailContainer = (props) => {
+export const ItemDetailContainer = () => {
   const [product, setProduct] = useState(true);
   const { id } = useParams();
 
