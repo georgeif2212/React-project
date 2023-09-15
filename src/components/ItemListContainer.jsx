@@ -24,24 +24,6 @@ export const ItemListContainer = (props) => {
     });
   })
 
-  // useEffect(() => {
-  //   fetch("https://fakestoreapi.com/products")
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       if(!id){
-  //         setProducts(data);
-          
-  //       }else{
-  //         const productsFiltered = data.filter((product)=>product.category===id);
-  //         setProducts(productsFiltered);
-  //       }
-        
-        
-  //     })
-  //     .catch((error) => {
-  //       console.error("Error", error);
-  //     });
-  // }, []);
 
   if(loading) return <div>Loading ...</div>;
   return (

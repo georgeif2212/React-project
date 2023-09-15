@@ -10,30 +10,20 @@ import { CartProvider } from "./contexts/CartContext";
 import { Cart } from "./components/Cart";
 
 function App() {
-  // useEffect(()=>{
-  //   const db = getFirestore();
-  //   const refDoc = doc(db,"productos","WaX2ImU1sPjas3ARSAYN");
-  //   getDoc(refDoc).then((snapshot)=>{
-  //     // console.log(snapshot.id,snapshot.data());
-  //     console.log({id: snapshot.id,...snapshot.data()});
-  //   });
-  // })
   useEffect(() => {
     const db = getFirestore();
     const refCollection = collection(db, "productos");
     getDocs(refCollection).then((snapshot) => {
       if (snapshot.size === 0) console.log("no results");
-      // else
-      // console.log(snapshot.docs);
+      
       else {
-        // console.log(
-        //   snapshot.docs.map((doc) => {
-        //     return { id: doc.id, ...doc.data() };
-        //   })
-        // );
+        console.log(
+          snapshot.docs.map((doc) => {
+            return { id: doc.id, ...doc.data() };
+          })
+        );
       }
-      // console.log(snapshot.id,snapshot.data());
-      // console.log({id: snapshot.id,...snapshot.data()});
+      
     });
   });
 

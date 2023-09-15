@@ -7,16 +7,7 @@ import { ItemDetail } from "./ItemDetail";
 export const ItemDetailContainer = (props) => {
   const [product, setProduct] = useState(true);
   const { id } = useParams();
-  // useEffect(() => {
-  //   fetch(`https://fakestoreapi.com/products/${id}`)
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       setProduct(data);
-  //     })
-  //     .catch((error) => {
-  //       console.error("Error", error);
-  //     });
-  // }, []);
+
   useEffect(() => {
     const db = getFirestore();
     const refDoc = doc(db, "items", id);

@@ -7,7 +7,7 @@ export const ItemDetail = ({ product }) => {
   const { addItem } = useContext(CartContext);
   const onAdd = (count) => addItem(product, count);
 
-  let valorRedondeado = (product.precio * 16.75).toFixed(2);
+  let valorRedondeado = product.precio;
   return (
     <Container>
       <article className="itemDetail">
