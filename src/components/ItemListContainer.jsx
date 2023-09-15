@@ -11,7 +11,7 @@ export const ItemListContainer = (props) => {
   const {id} = useParams();
   useEffect(()=>{
     const db = getFirestore();
-    const refCollection = collection(db,"productos");
+    const refCollection = collection(db,"items");
     getDocs(refCollection).then((snapshot)=>{
       if(snapshot.size===0)console.log("no results");      
       else{

@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 export const Item = ({ product }) => {
-  let valorRedondeado = (product.precio * 16.75).toFixed(2);
-  let valorRedondeadoNoDiscount = (valorRedondeado * 1.27).toFixed(2);
+  let valor = (product.precio).toFixed(2);
+  let valorNoDiscount = (valor * 1.27).toFixed(2);
   let nameShort;
   product.nombre.length > 45
     ? (nameShort = product.nombre.slice(0, 50) + "...")
@@ -27,10 +27,10 @@ export const Item = ({ product }) => {
           className="color-3 size-small_l"
           style={{ textDecoration: "line-through" }}
         >
-          s $ {valorRedondeadoNoDiscount}
+          $ {valorNoDiscount}
         </Card.Text>
         <Card.Title className="color-1 size-medium_m">
-          $ {valorRedondeado}
+          $ {valor}
         </Card.Title>
         <Card.Text className="color-2" style={{}}>
           {" "}
