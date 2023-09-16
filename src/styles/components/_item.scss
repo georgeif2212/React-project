@@ -1,7 +1,10 @@
-.product{
-  padding: 1em 0em;
-  &__body{
-    height: 30vh;
-    width: 100%;
+.item {
+  display: flex;
+  flex-flow: column;
+  object-fit: cover;
+  &-info {
+    display: flex;
+    flex-flow: column;
+    padding: 0.7em 1em 0em 1em;
   }
 }

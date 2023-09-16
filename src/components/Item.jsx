@@ -1,44 +1,44 @@
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
 export const Item = ({ product }) => {
-  let valor = (product.precio);
-  let valorNoDiscount = (valor * 1.27);
+  let valor = product.precio;
+  let valorNoDiscount = valor * 1.27;
+  let productDescription = product.description;
+
+  const words = productDescription.split(" ");
+  if (words.length > 9) {    
+    const truncatedDescription = words.slice(0, 9).join(" ") + " ...";
+    productDescription =truncatedDescription
+  }
 
   return (
-    <Card
-      key={product.id}
-      style={{ width: "20rem", height: "400px" }}
-      className="product"
-    >
-      <Card.Img
-        variant="top"
+    <article key={product.id} className="box-shadow item pb-2">
+      <img
         src={product.imagen}
-        className="product"
         style={{ objectFit: "contain", width: "100%", height: "50%" }}
       />
 
-      <Card.Body className="product__body">
-        <Card.Text
-          className="color-3 size-small_l"
+      <div className="item-info">
+        <p
+          className="color-2 size-small_m mb-1"
           style={{ textDecoration: "line-through" }}
         >
           $ {valorNoDiscount}
-        </Card.Text>
-        <Card.Title className="color-1 size-medium_m">
-          $ {valor}
-        </Card.Title>
-        <Card.Text className="color-2" style={{}}>
-
-          {product.nombre}
-        </Card.Text>
+        </p>
+        <h3 className="color-1 size-medium_m mb-1">$ {valor}</h3>
+        <p className="color-offer size-small_l mb-2">
+          <b>3x ${(valor / 3).toFixed(2)} sin intereses</b>
+        </p>
+        <p className="color-2 size-small_l mb-2">{productDescription}</p>
 
         <div className="d-flex justify-content-end">
           <Link to={`/item/${product.id}`}>
-            <Button variant="success">Comprar!</Button>
+            <button class="compra" role="button">
+              ¡Comprar!
+            </button>
           </Link>
         </div>
-      </Card.Body>
-    </Card>
+      </div>
+    </article>
   );
 };
