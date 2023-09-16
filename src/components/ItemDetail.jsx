@@ -7,7 +7,7 @@ export const ItemDetail = ({ product }) => {
   const { addItem } = useContext(CartContext);
   const onAdd = (count) => addItem(product, count);
 
-  let valorRedondeado = product.precio;
+  // let valorRedondeado = product.precio;
   return (
     <Container>
       <article className="itemDetail">
@@ -17,10 +17,10 @@ export const ItemDetail = ({ product }) => {
             {product.nombre}
           </h1>
 
-          <h2 className="color-2">$ {valorRedondeado}</h2>
+          {/* <h2 className="color-2">$ {valorRedondeado}</h2> */}
           <p className="color-3">{product.description}</p>
         </div>
-        <ItemCount onAdd={onAdd} />
+        <ItemCount stock={product.stock} onAdd={onAdd} />
       </article>
     </Container>
   );
