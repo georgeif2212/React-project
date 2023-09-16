@@ -1,18 +1,48 @@
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { CartContext } from "../contexts/CartContext";
 import { CartItem } from "./CartItem";
+import { getFirestore, collection, addDoc } from "firebase/firestore";
+import { InfoUser } from "./InfoUser";
 
 export const Cart = () => {
   const { items, addItem, removeItem, clear } = useContext(CartContext);
+
+  const [formValues, setFormValues] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    card: "",
+  });
+  const handleChange = (ev) => {
+    console.log(ev.target.name, ev.target.value);
+    setFormValues((prev) => ({ ...prev, [ev.target.name]: ev.target.value }));
+  };
 
   const total = () => {
     return items.reduce(
       (acum, valorActual) => acum + valorActual.quantity * valorActual.precio,
       0
     );
+  };
+
+  const sendOrder = () => {
+    const order = {
+      buyer: {
+        name: "Jorge",
+        phone: 5512894374,
+        email: "jinfante2212@gmail.com",
+      },
+      items: items,
+      total: total(),
+    };
+    const db = getFirestore();
+    const orderCollection = collection(db, "orders");
+    addDoc(orderCollection, order).then(({ id }) => {
+      if (id) alert("Su orden: " + id + " ha sido completada");
+    });
   };
 
   return (
@@ -59,9 +89,13 @@ export const Cart = () => {
                 $ <span id="total"></span>
               </p>
             </div>
+            <div className="d-flex justify-content-center">
+              <button onClick={() => sendOrder()}>Comprar</button>
+            </div>
           </div>
         </Col>
       </Row>
+      <InfoUser formValues={formValues} handleChange={handleChange} />
     </Container>
   );
 };

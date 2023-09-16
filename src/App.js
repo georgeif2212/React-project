@@ -3,29 +3,10 @@ import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
 import { ItemListContainer } from "./components/ItemListContainer";
 import { ItemDetailContainer } from "./components/ItemDetailContainer";
 import { NavBar } from "./components/NavBar";
-import { useEffect } from "react";
-// import {getFirestore,getDoc,doc} from 'firebase/firestore'
-import { getFirestore, getDocs, collection } from "firebase/firestore";
 import { CartProvider } from "./contexts/CartContext";
 import { Cart } from "./components/Cart";
 
 function App() {
-  useEffect(() => {
-    const db = getFirestore();
-    const refCollection = collection(db, "productos");
-    getDocs(refCollection).then((snapshot) => {
-      if (snapshot.size === 0) console.log("no results");
-      
-      else {
-        console.log(
-          snapshot.docs.map((doc) => {
-            return { id: doc.id, ...doc.data() };
-          })
-        );
-      }
-      
-    });
-  });
 
   return (
     <CartProvider>
