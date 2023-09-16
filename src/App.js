@@ -5,6 +5,7 @@ import { ItemDetailContainer } from "./components/ItemDetailContainer";
 import { NavBar } from "./components/NavBar";
 import { CartProvider } from "./contexts/CartContext";
 import { Cart } from "./components/Cart";
+import { InfoUser } from "./components/InfoUser";
 
 function App() {
 
@@ -18,8 +19,9 @@ function App() {
             element={<ItemListContainer greeting="Bienvenido!" />}
           />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/cart/infoUser" element={<InfoUser/>} />
           <Route
-            path="/category/:id"
+            path="/categoryid/:id"
             element={<ItemListContainer greeting="Categoría: " />}
           />
           <Route path="/item/:id" element={<ItemDetailContainer />} />

@@ -14,19 +14,19 @@ export const NavBar = () => {
           </Navbar.Brand>
 
           <Nav className="me-auto">
-            <Nav.Link as={Link} to="/category/men's clothing">
-              Hombres
+            <Nav.Link as={Link} to="/categoryid/caballero">
+              Caballero
             </Nav.Link>
 
-            <Nav.Link as={Link} to="/category/women's clothing">
-              Mujeres
+            <Nav.Link as={Link} to="/categoryid/dama">
+              Dama
             </Nav.Link>
 
-            <Nav.Link as={Link} to="/category/jewelery">
+            <Nav.Link as={Link} to="/categoryid/joyería">
               Joyería
             </Nav.Link>
 
-            <Nav.Link as={Link} to="/category/electronics">
+            <Nav.Link as={Link} to="/categoryid/:tecnologia">
               Electrónicos
             </Nav.Link>
           </Nav>

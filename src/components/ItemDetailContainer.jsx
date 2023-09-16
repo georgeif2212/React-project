@@ -12,7 +12,6 @@ export const ItemDetailContainer = () => {
     const db = getFirestore();
     const refDoc = doc(db, "items", id);
     getDoc(refDoc).then((snapshot) => {
-      // console.log(snapshot.id,snapshot.data());
       setProduct({ id: snapshot.id, ...snapshot.data() });
     });
   });

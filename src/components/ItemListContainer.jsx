@@ -9,6 +9,14 @@ export const ItemListContainer = (props) => {
   const [loading, setLoading]=useState(true);
   const [products, setProducts] = useState([]);
   const {id} = useParams();
+
+  // if(!id){
+  //   setProducts(data);
+  //   console.log(data);
+  // }else{
+  //   const productsFiltered = data.filter((product)=>product.category===id);
+  //   setProducts(productsFiltered);
+  // }
   useEffect(()=>{
     const db = getFirestore();
     const refCollection = collection(db,"items");

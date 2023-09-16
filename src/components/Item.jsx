@@ -2,12 +2,8 @@ import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 export const Item = ({ product }) => {
-  let valor = (product.precio).toFixed(2);
-  let valorNoDiscount = (valor * 1.27).toFixed(2);
-  let nameShort;
-  product.nombre.length > 45
-    ? (nameShort = product.nombre.slice(0, 50) + "...")
-    : (nameShort = product.nombre);
+  let valor = (product.precio);
+  let valorNoDiscount = (valor * 1.27);
 
   return (
     <Card
@@ -33,8 +29,8 @@ export const Item = ({ product }) => {
           $ {valor}
         </Card.Title>
         <Card.Text className="color-2" style={{}}>
-          {" "}
-          {nameShort}
+
+          {product.nombre}
         </Card.Text>
 
         <div className="d-flex justify-content-end">
