@@ -16,8 +16,8 @@ export const Cart = () => {
     email: "",
     card: "",
   });
+
   const handleChange = (ev) => {
-    console.log(ev.target.name, ev.target.value);
     setFormValues((prev) => ({ ...prev, [ev.target.name]: ev.target.value }));
   };
 
@@ -30,18 +30,17 @@ export const Cart = () => {
 
   const sendOrder = () => {
     const order = {
-      buyer: {
-        name: "Jorge",
-        phone: 5512894374,
-        email: "jinfante2212@gmail.com",
-      },
+      buyer: formValues,
       items: items,
       total: total(),
     };
     const db = getFirestore();
     const orderCollection = collection(db, "orders");
     addDoc(orderCollection, order).then(({ id }) => {
-      if (id) alert("Su orden: " + id + " ha sido completada");
+      if (id) {
+        setFormValues({ name: "", phone: "", email: "", card: "" });
+        clear();
+      }
     });
   };
 
