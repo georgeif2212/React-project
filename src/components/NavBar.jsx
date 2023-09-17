@@ -9,24 +9,24 @@ export const NavBar = () => {
     <>
       <Navbar className="navbar">
         <Container>
-          <Navbar.Brand as={Link} to="/">
+          <Navbar.Brand as={Link} to="/" style={{fontWeight:"600"}}>
             FusionStyleHub
           </Navbar.Brand>
 
           <Nav className="me-auto">
-            <Nav.Link as={Link} to="/categoryid/ropaHombres">
+            <Nav.Link style={{fontWeight:"400"}} as={Link} to="/categoryid/ropaHombres">
               Caballero
             </Nav.Link>
 
-            <Nav.Link as={Link} to="/categoryid/ropaMujeres">
+            <Nav.Link style={{fontWeight:"400"}} as={Link} to="/categoryid/ropaMujeres">
               Dama
             </Nav.Link>
 
-            <Nav.Link as={Link} to="/categoryid/joyeria">
+            <Nav.Link style={{fontWeight:"400"}} as={Link} to="/categoryid/joyeria">
               Joyería
             </Nav.Link>
 
-            <Nav.Link as={Link} to="/categoryid/tecnologia">
+            <Nav.Link style={{fontWeight:"400"}} as={Link} to="/categoryid/tecnologia">
               Electrónicos
             </Nav.Link>
           </Nav>

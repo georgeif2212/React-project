@@ -1,14 +1,17 @@
 import { Link } from "react-router-dom";
-import Button from "react-bootstrap/Button";
 export const Item = ({ product }) => {
   let valor = product.precio;
   let valorNoDiscount = valor * 1.27;
   let productDescription = product.description;
 
-  const words = productDescription.split(" ");
-  if (words.length > 9) {    
-    const truncatedDescription = words.slice(0, 9).join(" ") + " ...";
-    productDescription =truncatedDescription
+  const limit = 64; // Límite de caracteres
+  const text = product.description; // Tu descripción de producto
+
+  if (text.length > limit) {
+    const truncatedText = text.substring(0, limit - 3) + " ...";
+    productDescription = truncatedText;
+  } else {
+    productDescription = text; // Si no se excede el límite, mantén el texto original.
   }
 
   return (
@@ -25,15 +28,15 @@ export const Item = ({ product }) => {
         >
           $ {valorNoDiscount}
         </p>
-        <h3 className="color-1 size-medium_m mb-1">$ {valor}</h3>
-        <p className="color-offer size-small_l mb-2">
-          <b>3x ${(valor / 3).toFixed(2)} sin intereses</b>
+        <h3 className="color-1 size-medium_m mb-1" style={{fontWeight:"500"}}>$ {valor}</h3>
+        <p className="color-offer size-small_l mb-2"style={{fontWeight:"500"}}>
+          3x ${(valor / 3).toFixed(2)} sin intereses
         </p>
-        <p className="color-2 size-small_l mb-2">{productDescription}</p>
+        <p className="color-2 size-small_m mb-2">{productDescription}</p>
 
         <div className="d-flex justify-content-end">
           <Link to={`/item/${product.id}`}>
-            <button class="compra" role="button">
+            <button className="compra" role="button">
               ¡Comprar!
             </button>
           </Link>

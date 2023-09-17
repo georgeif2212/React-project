@@ -83,7 +83,7 @@ export const Footer = () => {
         <div className="size-medium_s color-white_2 text-center">
           &copy; Copyright{" "}
           <strong>
-            <span>Vaqueros</span>
+            <span>FusionStyleHub</span>
           </strong>
           . All Rights Reserved
         </div>
