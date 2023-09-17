@@ -1,0 +1,22 @@
+.itemCount {
+  display: flex;
+  flex-flow: column;
+  color: #111827;
+  padding: 10px;
+  text-align: center;
+  
+  &-contador {
+    padding-bottom: 0.5em;
+    border-bottom: #b6b6b8 1px solid;
+    button {
+      background: none;
+      border: none;
+    }
+    display: flex;
+    justify-content: space-evenly;
+  }
+  button {
+    background: none;
+    border: none;
+  }
+}

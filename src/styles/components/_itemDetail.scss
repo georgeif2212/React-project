@@ -1,13 +1,20 @@
 .itemDetail {
   display: grid;
-  grid-template-columns: 60% auto;
+  grid-template-columns: 70% auto;
   gap: 20px;
   justify-items: center;
-  padding-top: 3em;
   img {
-    
-    width: 80%;
-    max-width: 100%;
+    width: 90%;
     height: auto;
+  }
+  &-info {
+    text-align: justify;
+    padding: 1em 0em 0em 1em;
+    &__name {
+      font-weight: 600;
+    }
+    &__price {
+      font-weight: 500;
+    }
   }
 }

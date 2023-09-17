@@ -1,6 +1,7 @@
 import { useState } from "react";
-
-export const ItemCount = ({stock, onAdd }) => {
+import { IconMinus } from '@tabler/icons-react';
+import { IconPlus } from '@tabler/icons-react';
+export const ItemCount = ({ stock, onAdd }) => {
   const [count, setCount] = useState(1);
 
   const handleDecreaseCount = () => {
@@ -15,11 +16,13 @@ export const ItemCount = ({stock, onAdd }) => {
   };
 
   return (
-    <div className="itemCount">
-      <span onClick={handleDecreaseCount}>-</span>
-      <span>{count}</span>
-      <span onClick={handleIncreaseCount}>+</span>
-      <button onClick={() => onAdd(count)}>Agregar al carrito</button>
+    <div className="itemCount mx-3">
+      <div className="itemCount-contador">
+        <button className="box-shadow" onClick={handleDecreaseCount}><IconMinus/> </button>
+        <span>{count}</span>
+        <button className="box-shadow" onClick={handleIncreaseCount}><IconPlus/> </button>
+      </div>
+      <button className="itemCount-carrito pt-1" onClick={() => onAdd(count)}>Agregar al carrito</button>
     </div>
   );
 };
