@@ -56,7 +56,7 @@ export const ItemListContainer = (props) => {
   return (
     <Container className="mt-3">
       <h1>{props.greeting}</h1>
-      <section className="items">
+      <section className="items pb-5" >
         <ItemList products={products} />
       </section>
     </Container>

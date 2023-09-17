@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 export const NavBar = () => {
   return (
     <>
-      <Navbar bg="light" data-bs-theme="light" className="navbar">
+      <Navbar className="navbar">
         <Container>
           <Navbar.Brand as={Link} to="/">
             FusionStyleHub

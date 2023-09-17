@@ -1,3 +1,7 @@
-*{
-    background-color: #F5F5F5;
+a {
+    text-decoration: none !important; /* Quita el subrayado */
+    color: inherit !important; /* Hereda el color del texto de su contenedor */
+  }
+main {
+  background-color: #f5f5f5;
 }

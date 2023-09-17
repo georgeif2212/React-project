@@ -6,6 +6,7 @@ import { NavBar } from "./components/NavBar";
 import { CartProvider } from "./contexts/CartContext";
 import { Cart } from "./components/Cart";
 import { InfoUser } from "./components/InfoUser";
+import { Footer } from "./components/Footer";
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
           <Route path="/item/:id" element={<ItemDetailContainer />} />
           <Route path="*" element={<h2>Página no encontrada</h2>} />
         </Routes>
+        <Footer/>
       </BrowserRouter>
     </CartProvider>
   );

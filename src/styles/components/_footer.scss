@@ -1,0 +1,18 @@
+.footer {
+  background-color: #1f1e1e;
+  .social-links {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .copyright {
+    border-top: 1px solid #ddd9cc;
+    border-bottom: 1px solid #ddd9cc;
+  }
+  &-links {
+    ul {
+      li {
+        padding-left: 0.8rem;
+      }
+    }
+  }
+}
