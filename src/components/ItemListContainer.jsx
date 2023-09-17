@@ -14,8 +14,8 @@ import {
 import data from "../data.json";
 
 export const ItemListContainer = (props) => {
-  const [loading, setLoading] = useState(true);
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
   const { id } = useParams();
 
   // useEffect(() => {
@@ -27,47 +27,42 @@ export const ItemListContainer = (props) => {
   //   promise.then((data) => {
   //     if(!id){
   //       setProducts(data);
-  //       setLoading(false);
   //     }else{
   //       const productsFiltered = data.filter((product)=>product.categoryid===id);
   //       setProducts(productsFiltered);
-  //       setLoading(false);
   //     }
-  //   });
+  //   }).finally(()=>{
+  //     setLoading(false);
+  //   })
   // });
+
   // ! USEEFFECT CON FIREBASE
+  console.log(id);
   useEffect(() => {
     const db = getFirestore();
     const refCollection = id
-      // * Si tengo id voy a hacer una busqueda en la colección items en donde categoryid coincida con el id
-      ? query(collection(db, "items"), where("categoryid", "==", id))
-      // * Si no, solo muestro la colección
-      : collection(db, "items");
+      ? //* Si tengo id voy a hacer una busqueda en la colección items en donde categoryid coincida con el id
+        query(collection(db, "items"), where("categoryid", "==", id))
+      : //* Si no, solo muestro la colección
+        collection(db, "items");
+    console.log(refCollection);
     getDocs(refCollection)
       .then((snapshot) => {
-        if (snapshot.size === 0) setProducts([]);
-        else {
-          if (!id) {
-            setProducts(
-              snapshot.docs.map((doc) => {
-                return { id: doc.id, ...doc.data() };
-              })
-            );
-          } else {
-          }
+        if (snapshot.size === 0) {
+          setProducts([]);
+          console.log(products);
+        } else {
+          setProducts(
+            snapshot.docs.map((doc) => {
+              return { id: doc.id, ...doc.data() };
+            })
+          );
         }
       })
       .finally(() => {
         setLoading(false);
       });
-  });
-  // if(!id){
-  //   setProducts(data);
-  //   console.log(data);
-  // }else{
-  //   const productsFiltered = data.filter((product)=>product.category===id);
-  //   setProducts(productsFiltered);
-  // }
+  }, [id]);
 
   if (loading) return <Spinner />;
 
