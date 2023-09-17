@@ -2,6 +2,7 @@ import Container from "react-bootstrap/Container";
 import { useState, useEffect } from "react";
 import { ItemList } from "./ItemList";
 import { useParams } from "react-router-dom";
+import { Spinner } from "./Spinner";
 // import {getFirestore,getDocs,collection} from 'firebase/firestore'
 
 import data from "../data.json";
@@ -15,7 +16,7 @@ export const ItemListContainer = (props) => {
     const promise = new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve(data);
-      }, 1000);
+      }, 5000);
     });
     promise.then((data) => {
       if(!id){
@@ -51,10 +52,10 @@ export const ItemListContainer = (props) => {
   //   setProducts(productsFiltered);
   // }
 
-  if (loading) return <div>Loading ...</div>;
+  if (loading) return <Spinner/>
 
   return (
-    <Container className="mt-3">
+    <Container style={{minHeight:"70vh"}} className="mt-3">
       <h1>{props.greeting}</h1>
       <section className="items pb-5" >
         <ItemList products={products} />

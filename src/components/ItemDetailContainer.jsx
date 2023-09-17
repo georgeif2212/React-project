@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 // import { getFirestore, getDoc, doc } from "firebase/firestore";
 import { ItemDetail } from "./ItemDetail";
 import data from "../data.json";
+import { Spinner } from "./Spinner";
 
 export const ItemDetailContainer = () => {
   const [product, setProduct] = useState(null);
@@ -32,10 +33,10 @@ export const ItemDetailContainer = () => {
   //   });
   // });
 
-  if (loading) return <div>Loading ...</div>;
+  if (loading) return <Spinner/>
 
   return (
-    <Container className="mt-3">
+    <Container style={{minHeight:"70vh"}} className="mt-3">
       <ItemDetail product={product} />
     </Container>
   );
