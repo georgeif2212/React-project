@@ -1,0 +1,16 @@
+.cartItem {
+  display: flex;
+  flex-flow: row;
+  gap: 1em;
+  &__img{
+    width: 25%;
+    height: 100%;
+  }
+  &-info{
+    display: flex;
+    flex-flow: row;
+    &__name{
+      font-weight: 600;
+    }
+  }
+}
