@@ -8,13 +8,15 @@
     height: auto;
   }
   &-info {
-    text-align: justify;
     padding: 1em 0em 0em 1em;
     &__name {
       font-weight: 600;
     }
     &__price {
       font-weight: 500;
+    }
+    &__description {
+      text-align: justify;
     }
   }
 }

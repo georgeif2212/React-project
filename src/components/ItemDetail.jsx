@@ -26,7 +26,7 @@ export const ItemDetail = ({ product }) => {
               3x ${(valor / 3).toFixed(2)} sin intereses
             </span>
           </p>
-          <p className="color-2 size-small_l">{product.description}</p>
+          <p className="color-2 size-small_l itemDetail-info__description">{product.description}</p>
           <ItemCount  stock={product.stock} onAdd={onAdd} />
         </div>
       </article>

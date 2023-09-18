@@ -5,24 +5,34 @@ import { useContext } from "react";
 import { CartContext } from "../contexts/CartContext";
 import { CartItem } from "./CartItem";
 import { Link } from "react-router-dom";
+import { EmptyCart } from "./EmptyCart";
 
 export const Cart = () => {
-  const { items, addItem, removeItem, clear,total} = useContext(CartContext);
+  const { items, addItem, removeItem, clear, total } = useContext(CartContext);
 
   return (
-    <Container>
-      <h2 className="color-1 size-medium_l mb-2">Carrito de compras</h2>
+    <Container style={{ minHeight: "70vh" }}>
+      <h1
+        style={{ fontWeight: "500" }}
+        className="color-1 size-large_s pt-4 mb-2"
+      >
+        Carrito de compras
+      </h1>
       <Row>
         <Col lg="8">
-          {items.map((item) => (
-            <CartItem
-              key={item.id}
-              item={item}
-              addItem={addItem}
-              removeItem={removeItem}
-              clear={clear}
-            />
-          ))}
+          {items.length == 0 ? (
+            <EmptyCart />
+          ) : (
+            items.map((item) => (
+              <CartItem
+                key={item.id}
+                item={item}
+                addItem={addItem}
+                removeItem={removeItem}
+                clear={clear}
+              />
+            ))
+          )}
         </Col>
         <Col lg="4">
           <div className="carrito-resumen py-4">
