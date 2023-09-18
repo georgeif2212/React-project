@@ -20,20 +20,33 @@ export const Footer = () => {
               iaculis eu non diam phasellus.
             </p>
             <div className="social-links mt-4">
-              <a href="#">
-                <TwitterWidget/>
+              <a
+                href="https://twitter.com/?lang=es"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <TwitterWidget />
               </a>
-              <a href="#">
-                <FacebookWidget/>;
+              <a
+                href="https://www.facebook.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FacebookWidget />;
               </a>
-              <a href="#" target="_blank">
-                <InstagramWidget/>
+              <a
+                href="https://www.instagram.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <InstagramWidget />
               </a>
               <a
                 href="https://www.linkedin.com/in/jorgeinfante2212/"
                 target="_blank"
+                rel="noopener noreferrer"
               >
-                <LinkedinWidget/>
+                <LinkedinWidget color={"white"} />
               </a>
             </div>
           </Col>
@@ -86,7 +99,14 @@ export const Footer = () => {
           . All Rights Reserved
         </div>
         <div className="credits size-small_l color-white_2 text-center">
-          Diseñado por <a href="">Jorge Infante Fragoso</a>
+          Diseñado por{" "}
+          <a
+            href="https://www.linkedin.com/in/jorgeinfante2212/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Jorge Infante Fragoso
+          </a>
         </div>
       </div>
     </footer>

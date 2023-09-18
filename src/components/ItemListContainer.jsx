@@ -11,7 +11,7 @@ import {
   where,
 } from "firebase/firestore";
 
-import data from "../data.json";
+
 
 export const ItemListContainer = (props) => {
   const [products, setProducts] = useState([]);
@@ -37,7 +37,6 @@ export const ItemListContainer = (props) => {
   // });
 
   // ! USEEFFECT CON FIREBASE
-  console.log(id);
   useEffect(() => {
     const db = getFirestore();
     const refCollection = id
@@ -45,12 +44,10 @@ export const ItemListContainer = (props) => {
         query(collection(db, "items"), where("categoryid", "==", id))
       : //* Si no, solo muestro la colección
         collection(db, "items");
-    console.log(refCollection);
     getDocs(refCollection)
       .then((snapshot) => {
         if (snapshot.size === 0) {
           setProducts([]);
-          console.log(products);
         } else {
           setProducts(
             snapshot.docs.map((doc) => {
