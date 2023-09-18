@@ -4,7 +4,22 @@ export const CartContext = createContext([]);
 
 export const CartProvider = ({ children }) => {
   const [shippingCosts, setShippingCosts] = useState(0);
+  const [discount, setDiscount] = useState(0);
   const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    const calculatedShippingCosts = getRandomArbitrary(150, 350);
+    setShippingCosts(calculatedShippingCosts);
+  }, [items]);
+
+  useEffect(() => {
+    const calculatedDiscount = getRandomArbitrary(
+      total() * 0.05,
+      total() * 0.08
+    );
+    setDiscount(calculatedDiscount);
+  }, [items]);
+  
   const addItem = (producto, quantity) => {
     // * Se busca si anteriormente se ha metido un producto al carrito con el mismo id
     const existe = items.some((item) => item.id === producto.id);
@@ -50,12 +65,8 @@ export const CartProvider = ({ children }) => {
     return Math.random() * (max - min) + min;
   }
 
-  // * useEffect para calcular los gastos de envio aleatoriamente solo cuando el total 
+  // * useEffect para calcular los gastos de envio aleatoriamente solo cuando el total
   // * y los items del carrito cambien
-  useEffect(() => {
-    const calculatedShippingCosts = getRandomArbitrary(total() / 10, 250);
-    setShippingCosts(calculatedShippingCosts);
-  }, [total()]);
 
   return (
     <CartContext.Provider
@@ -67,6 +78,7 @@ export const CartProvider = ({ children }) => {
         items,
         total,
         shippingCosts,
+        discount,
       }}
     >
       {children}

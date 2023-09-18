@@ -11,7 +11,7 @@ export const ItemDetail = ({ product }) => {
   return (
     <Container>
       <article className="itemDetail py-3">
-        <img src={product.imagen} />
+        <img src={product.imagen} alt="" />
         <div className="itemDetail-info">
           <h1 className="color-1 size-medium_l itemDetail-info__name">
             {product.nombre}
