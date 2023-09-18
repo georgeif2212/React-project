@@ -1,7 +1,9 @@
 import React, { createContext, useState } from "react";
+import { useEffect } from "react";
 export const CartContext = createContext([]);
 
 export const CartProvider = ({ children }) => {
+  const [shippingCosts, setShippingCosts] = useState(0);
   const [items, setItems] = useState([]);
   const addItem = (producto, quantity) => {
     // * Se busca si anteriormente se ha metido un producto al carrito con el mismo id
@@ -43,9 +45,29 @@ export const CartProvider = ({ children }) => {
       0
     );
   };
+
+  function getRandomArbitrary(min, max) {
+    return Math.random() * (max - min) + min;
+  }
+
+  // * useEffect para calcular los gastos de envio aleatoriamente solo cuando el total 
+  // * y los items del carrito cambien
+  useEffect(() => {
+    const calculatedShippingCosts = getRandomArbitrary(total() / 10, 250);
+    setShippingCosts(calculatedShippingCosts);
+  }, [total()]);
+
   return (
     <CartContext.Provider
-      value={{ addItem, removeItem, clear, totalWidget, items, total }}
+      value={{
+        addItem,
+        removeItem,
+        clear,
+        totalWidget,
+        items,
+        total,
+        shippingCosts,
+      }}
     >
       {children}
     </CartContext.Provider>

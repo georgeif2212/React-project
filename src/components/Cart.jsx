@@ -6,9 +6,12 @@ import { CartContext } from "../contexts/CartContext";
 import { CartItem } from "./CartItem";
 import { Link } from "react-router-dom";
 import { EmptyCart } from "./EmptyCart";
+import { useState, useEffect } from "react";
 
 export const Cart = () => {
-  const { items, addItem, removeItem, clear, total } = useContext(CartContext);
+  const { items, addItem, removeItem, clear, total,shippingCosts} = useContext(CartContext);
+  
+  
 
   return (
     <Container style={{ minHeight: "70vh" }}>
@@ -35,39 +38,51 @@ export const Cart = () => {
           )}
         </Col>
         <Col lg="4">
-          <div className="carrito-resumen py-4">
-            <h3 className="color-2 size-medium_m pb-3">Resumen</h3>
-            <div className="carrito-resumen-calculo">
-              <p className="color-2 size-medium_s mb-2">Subtotal</p>
-              <p className="color-1 size-medium_s mb-2">
-                $ <span>{total()}</span>
-              </p>
-            </div>
-            <div className="carrito-resumen-calculo">
-              <p className="color-2 size-medium_s mb-2">
-                Gastos de envío estimados
-              </p>
-              <p className="color-1 size-medium_s mb-2">
-                <span id="envio"></span>
-              </p>
-            </div>
-            <div className="carrito-resumen-calculo">
-              <p className="color-2 size-medium_s mb-2">Descuento total</p>
-              <p className="color-1 size-medium_s mb-4">
-                -$ <span id="descuento"></span>
-              </p>
-            </div>
-            <div className="carrito-resumen-calculo-total">
-              <p className="color-2 size-medium_s mb-0">Total</p>
-              <p className="color-1 size-medium_s mb-0">
-                $ <span id="total"></span>
-              </p>
-            </div>
-            <div className="d-flex justify-content-center">
-              <Link to={"/cart/infoUser"}>
-                <button>Continuar</button>
-              </Link>
-            </div>
+          <div className="cart-summary py-4">
+            {items.length == 0 ? (
+              <>
+                <h3 className="color-2 size-medium_m pb-3">Resumen</h3>
+                <p className="color-2 size-medium_s mb-2">
+                  Los detalles de tu compra se mostrarán cuando agregues
+                  productos
+                </p>
+              </>
+            ) : (
+              <>
+                <h3 className="color-2 size-medium_m pb-3">Resumen</h3>
+                <div className="cart-summary__math">
+                  <p className="color-2 size-medium_s mb-2">Subtotal</p>
+                  <p className="color-1 size-medium_s mb-2">
+                    $ <span>{total()}</span>
+                  </p>
+                </div>
+                <div className="cart-summary__math">
+                  <p className="color-2 size-medium_s mb-2">
+                    Gastos de envío estimados
+                  </p>
+                  <p className="color-1 size-medium_s mb-2">
+                    <span id="envio">$ {shippingCosts.toFixed(2)}</span>
+                  </p>
+                </div>
+                <div className="cart-summary__math">
+                  <p className="color-2 size-medium_s mb-2">Descuento total</p>
+                  <p className="color-1 size-medium_s mb-4">
+                    -$ <span id="descuento"></span>
+                  </p>
+                </div>
+                <div className="cart-summary__math">
+                  <p className="color-2 size-medium_s mb-0">Total</p>
+                  <p className="color-1 size-medium_s mb-0">
+                    $ <span id="total"></span>
+                  </p>
+                </div>
+                <div className="d-flex justify-content-center">
+                  <Link to={"/cart/infoUser"}>
+                    <button>Continuar</button>
+                  </Link>
+                </div>
+              </>
+            )}
           </div>
         </Col>
       </Row>
