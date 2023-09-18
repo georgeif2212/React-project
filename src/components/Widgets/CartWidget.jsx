@@ -1,7 +1,7 @@
 import { IconShoppingCartDollar } from '@tabler/icons-react';
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-import { CartContext } from "../contexts/CartContext";
+import { CartContext } from "../../contexts/CartContext";
 
 export const CartWidget = () => {
   const {totalWidget}=useContext(CartContext)

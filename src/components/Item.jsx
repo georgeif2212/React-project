@@ -15,7 +15,7 @@ export const Item = ({ product }) => {
   }
 
   return (
-    <article key={product.id} className="box-shadow item pb-2">
+    <article key={product.id} className="box-shadow item pb-3">
       <img
         src={product.imagen}
         style={{ objectFit: "contain", width: "100%", height: "50%" }}

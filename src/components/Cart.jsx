@@ -4,14 +4,10 @@ import Col from "react-bootstrap/Col";
 import { useContext } from "react";
 import { CartContext } from "../contexts/CartContext";
 import { CartItem } from "./CartItem";
-
-import { InfoUser } from "./InfoUser";
 import { Link } from "react-router-dom";
 
 export const Cart = () => {
   const { items, addItem, removeItem, clear,total} = useContext(CartContext);
-
-  
 
   return (
     <Container>

@@ -1,11 +1,9 @@
 import { Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import {
-  IconBrandTwitter,
-  IconBrandFacebook,
-  IconBrandInstagram,
-  IconBrandLinkedin,
-} from "@tabler/icons-react";
+import { FacebookWidget } from "./Widgets/FacebookWidget";
+import { InstagramWidget } from "./Widgets/InstagramWidget";
+import { LinkedinWidget } from "./Widgets/LinkedinWidget";
+import { TwitterWidget } from "./Widgets/TwitterWidget";
 
 export const Footer = () => {
   return (
@@ -23,19 +21,19 @@ export const Footer = () => {
             </p>
             <div className="social-links mt-4">
               <a href="#">
-                <IconBrandTwitter color="white" />
+                <TwitterWidget/>
               </a>
               <a href="#">
-                <IconBrandFacebook color="white" />;
+                <FacebookWidget/>;
               </a>
               <a href="#" target="_blank">
-                <IconBrandInstagram color="white" />
+                <InstagramWidget/>
               </a>
               <a
                 href="https://www.linkedin.com/in/jorgeinfante2212/"
                 target="_blank"
               >
-                <IconBrandLinkedin color="white" />
+                <LinkedinWidget/>
               </a>
             </div>
           </Col>
