@@ -2,15 +2,29 @@
   display: flex;
   flex-flow: row;
   gap: 1em;
-  &__img{
-    width: 25%;
-    height: 100%;
+  padding-bottom: 1em;
+  margin-bottom: 1em;
+  border-bottom: 1px solid #ddd9cc;
+  &__img {
+    max-width: 180px;
+    max-height: auto;
+    width: auto;
+    height: auto;
+    object-fit: cover;
   }
-  &-info{
+
+  &-info {
     display: flex;
     flex-flow: row;
-    &__name{
+    &__name {
       font-weight: 600;
+    }
+    &__action{
+      cursor: pointer;
+      transition: 300ms;
+      &:hover{
+        font-weight: 600;
+      }
     }
   }
 }

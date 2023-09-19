@@ -6,7 +6,7 @@ export const CartProvider = ({ children }) => {
   const [shippingCosts, setShippingCosts] = useState(0);
   const [discount, setDiscount] = useState(0);
   const [items, setItems] = useState([]);
-
+  
   useEffect(() => {
     const calculatedShippingCosts = getRandomArbitrary(150, 350);
     setShippingCosts(calculatedShippingCosts);
@@ -41,7 +41,7 @@ export const CartProvider = ({ children }) => {
     }
   };
 
-  // const addItem = (producto, quantity) => console.log(producto, quantity);
+  
 
   const totalWidget = items.reduce((acc, val) => acc + val.quantity, 0);
 

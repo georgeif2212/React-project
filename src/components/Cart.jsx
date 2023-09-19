@@ -24,15 +24,27 @@ export const Cart = () => {
           {items.length === 0 ? (
             <EmptyCart />
           ) : (
-            items.map((item) => (
-              <CartItem
-                key={item.id}
-                item={item}
-                addItem={addItem}
-                removeItem={removeItem}
-                clear={clear}
-              />
-            ))
+            <>
+              {items.map((item) => (
+                <CartItem
+                  key={item.id}
+                  item={item}
+                  addItem={addItem}
+                  removeItem={removeItem}
+                />
+              ))}
+              <p
+                className="cartItem-info__action"
+                style={{
+                  display: "flex",
+                  justifyContent: "flex-end",
+                  cursor: "pointer",
+                }}
+                onClick={() => clear()}
+              >
+                Vaciar carrito
+              </p>
+            </>
           )}
         </Col>
         <Col lg="4">
@@ -68,10 +80,14 @@ export const Cart = () => {
                     -$ {discount.toFixed(2)} <span id="descuento"></span>
                   </p>
                 </div>
-                <div className="cart-summary__math"style={{borderTop:"solid 1px #ddd9cc"}}>
+                <div
+                  className="cart-summary__math"
+                  style={{ borderTop: "solid 1px #ddd9cc" }}
+                >
                   <p className="color-2 size-medium_s pt-2 mb-0">Total</p>
                   <p className="color-1 size-medium_s pt-2 mb-0">
-                    $ {(total()+shippingCosts-(1*(discount))).toFixed(2)}<span id="total"></span>
+                    $ {(total() + shippingCosts - 1 * discount).toFixed(2)}
+                    <span id="total"></span>
                   </p>
                 </div>
                 <div className="d-flex justify-content-center">
