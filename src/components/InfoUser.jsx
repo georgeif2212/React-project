@@ -29,14 +29,33 @@ export const InfoUser = () => {
       items: items,
       total: total(),
     };
-    const db = getFirestore();
-    const orderCollection = collection(db, "orders");
-    addDoc(orderCollection, order).then(({ id }) => {
-      if (id) {
-        setFormValues({ name: "", phone: "", email: "", card: "" });
-        clear();
-      }
-    });
+    if (validateForm()) {
+      const db = getFirestore();
+      const orderCollection = collection(db, "orders");
+      addDoc(orderCollection, order).then(({ id }) => {
+        if (id) {
+          setFormValues({ name: "", phone: "", email: "", card: "" });
+          clear();
+        }
+      });
+    } else {
+      alert("Faltaron campos por llenar");
+    }
+  };
+  const validateForm = () => {
+    const { name, phone, email, card } = formValues;
+
+    // * Que los campos no esten vacios
+    if (
+      name.trim() === "" ||
+      phone.trim() === "" ||
+      email.trim() === "" ||
+      card.trim() === ""
+    ) {
+      return false;
+    }
+
+    return true;
   };
 
   return (
@@ -113,7 +132,9 @@ export const InfoUser = () => {
             {items.length === 0 ? (
               <></>
             ) : (
-              <button onClick={() => sendOrder()}>Comprar</button>
+              <div style={{ display: "flex", justifyContent: "end" }}>
+                <button onClick={() => sendOrder()}>Comprar</button>
+              </div>
             )}
           </Col>
         </Row>

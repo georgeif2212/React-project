@@ -26,10 +26,11 @@ export const ItemCount = ({ stock, onAdd }) => {
           <IconPlus />
         </button>
       </div>
-
-      <button className="itemCount-carrito pt-1" onClick={() => onAdd(count)}>
-        Agregar al carrito
-      </button>
+      <div className="pt-1" style={{display:"flex",justifyContent:"center"}}>
+        <button className="itemCount-carrito pt-1" onClick={() => onAdd(count)}>
+          Añadir a carrito
+        </button>
+      </div>
     </div>
   );
 };

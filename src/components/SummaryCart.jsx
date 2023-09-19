@@ -1,4 +1,4 @@
-export const SummaryCart = ({items, total, shippingCosts, discount}) => {
+export const SummaryCart = ({ items, total, shippingCosts, discount }) => {
   return (
     <div className="cart-summary py-4">
       {items.length === 0 ? (
@@ -41,7 +41,6 @@ export const SummaryCart = ({items, total, shippingCosts, discount}) => {
               <span id="total"></span>
             </p>
           </div>
-
         </>
       )}
     </div>
