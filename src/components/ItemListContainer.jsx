@@ -11,30 +11,10 @@ import {
   where,
 } from "firebase/firestore";
 
-
-
 export const ItemListContainer = (props) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
-
-  // useEffect(() => {
-  //   const promise = new Promise((resolve, reject) => {
-  //     setTimeout(() => {
-  //       resolve(data);
-  //     }, 1000);
-  //   });
-  //   promise.then((data) => {
-  //     if(!id){
-  //       setProducts(data);
-  //     }else{
-  //       const productsFiltered = data.filter((product)=>product.categoryid===id);
-  //       setProducts(productsFiltered);
-  //     }
-  //   }).finally(()=>{
-  //     setLoading(false);
-  //   })
-  // });
 
   // ! USEEFFECT CON FIREBASE
   useEffect(() => {

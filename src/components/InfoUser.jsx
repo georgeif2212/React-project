@@ -5,9 +5,12 @@ import { getFirestore, collection, addDoc } from "firebase/firestore";
 import { Container } from "react-bootstrap";
 import { useContext } from "react";
 import { CartContext } from "../contexts/CartContext";
+import { CreditCardWidget } from "./Widgets/CreditCardWidget";
+import { SummaryCart } from "./SummaryCart";
 
 export const InfoUser = () => {
-  const { items, clear, total } = useContext(CartContext);
+  const { items, clear, total, shippingCosts, discount } =
+    useContext(CartContext);
 
   const [formValues, setFormValues] = useState({
     name: "",
@@ -19,7 +22,7 @@ export const InfoUser = () => {
   const handleChange = (ev) => {
     setFormValues((prev) => ({ ...prev, [ev.target.name]: ev.target.value }));
   };
-  
+
   const sendOrder = () => {
     const order = {
       buyer: formValues,
@@ -37,54 +40,82 @@ export const InfoUser = () => {
   };
 
   return (
-    <Container>
+    <Container style={{ paddingTop: "2em", minHeight: "70vh" }}>
+      <h1>Ingresa tus datos para la compra</h1>
       <form>
         <Row>
-          <Col md="6">
-            <input
-              onChange={handleChange}
-              value={formValues.name}
-              type="text"
-              name="name"
-              className="form-control"
-              placeholder="Nombre completo"
-              required
-            />
+          <Col lg="8">
+            <Row>
+              <Col
+                lg="6"
+                style={{
+                  display: "flex",
+                  flexFlow: "column",
+                  justifyContent: "center",
+                  gap: "20px",
+                }}
+              >
+                <input
+                  onChange={handleChange}
+                  value={formValues.name}
+                  type="text"
+                  name="name"
+                  className="form-control"
+                  placeholder="Nombre completo"
+                  required
+                />
+
+                <input
+                  onChange={handleChange}
+                  value={formValues.email}
+                  type="email"
+                  name="email"
+                  className="form-control"
+                  placeholder="Correo electrónico"
+                  required
+                />
+
+                <input
+                  onChange={handleChange}
+                  value={formValues.phone}
+                  type="tel"
+                  name="phone"
+                  className="form-control mt-3 mt-md-0"
+                  placeholder="Numero teléfonico"
+                  required
+                />
+
+                <input
+                  onChange={handleChange}
+                  value={formValues.card}
+                  type="text"
+                  name="card"
+                  className="form-control mt-3 mt-md-0"
+                  pattern="[0-9]{13,19}"
+                  placeholder="1234 5678 9012 3456"
+                  required
+                />
+              </Col>
+              <Col lg="6">
+                <div style={{ display: "flex", justifyContent: "center" }}>
+                  <CreditCardWidget width={"350px"} />
+                </div>
+              </Col>
+            </Row>
           </Col>
-          <Col md="6">
-            <input
-              onChange={handleChange}
-              value={formValues.email}
-              type="email"
-              name="email"
-              className="form-control"
-              placeholder="Correo electrónico"
-              required
+          <Col lg="4">
+            <SummaryCart
+              items={items}
+              total={total}
+              shippingCosts={shippingCosts}
+              discount={discount}
             />
+            {items.length === 0 ? (
+              <></>
+            ) : (
+              <button onClick={() => sendOrder()}>Comprar</button>
+            )}
           </Col>
-          <Col md="6">
-            <input
-              onChange={handleChange}
-              value={formValues.phone}
-              type="tel"
-              name="phone"
-              className="form-control mt-3 mt-md-0"
-              placeholder="Numero teléfonico"
-              required
-            />
-          </Col>
-          <Col md="6">
-            <input
-              onChange={handleChange}
-              value={formValues.card}
-              type="text"
-              name="card"
-              className="form-control mt-3 mt-md-0"
-              pattern="[0-9]{13,19}"
-              placeholder="1234 5678 9012 3456"
-            />
-          </Col>
-          <button onClick={() => sendOrder()}>Comprar</button>
         </Row>
       </form>
     </Container>
