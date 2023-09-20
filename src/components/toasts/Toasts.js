@@ -1,6 +1,6 @@
 import { toast } from "react-toastify";
 
-export const error = () => {
+export const warn = () => {
   toast.warn("Llena todos los campos", {
     position: "top-right",
     autoClose: 5000,
@@ -14,7 +14,7 @@ export const error = () => {
 };
 
 export const notificacion = () => {
-  toast("🦄 Wow so easy!", {
+  toast.success("Tu compra se ha realizado", {
     position: "top-right",
     autoClose: 5000,
     hideProgressBar: false,
@@ -38,3 +38,17 @@ export const addCart = () => {
     theme: "light",
   });
 };
+
+export const error = () => {
+  toast.error("Hubo un error en la compra", {
+    position: "top-right",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "light",
+  });
+};
+

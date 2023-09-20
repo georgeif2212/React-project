@@ -8,9 +8,12 @@ import { CartContext } from "../contexts/CartContext";
 import { CreditCardWidget } from "./Widgets/CreditCardWidget";
 import { SummaryCart } from "./SummaryCart";
 import React from "react";
-import {notificacion,error} from "./toasts/Toasts"
+import { notificacion, warn, error } from "./toasts/Toasts";
+import { useNavigate } from "react-router-dom";
 
 export const InfoUser = () => {
+  const navigate = useNavigate();
+
   const { items, clear, total, shippingCosts, discount } =
     useContext(CartContext);
 
@@ -38,11 +41,15 @@ export const InfoUser = () => {
         if (id) {
           setFormValues({ name: "", phone: "", email: "", card: "" });
           clear();
+          navigate("/cart");
           notificacion();
+          console.log(id);
+        } else {
+          error();
         }
       });
     } else {
-      error();
+      warn();
     }
   };
 
@@ -65,7 +72,7 @@ export const InfoUser = () => {
   return (
     <Container style={{ paddingTop: "2em", minHeight: "70vh" }}>
       <h1>Ingresa tus datos para la compra</h1>
-      <form>
+      <form onSubmit={(e) => e.preventDefault()}>
         <Row>
           <Col lg="8">
             <Row>
@@ -86,6 +93,7 @@ export const InfoUser = () => {
                   className="form-control"
                   placeholder="Nombre completo"
                   required
+                  autoComplete="off"
                 />
 
                 <input
@@ -96,6 +104,7 @@ export const InfoUser = () => {
                   className="form-control"
                   placeholder="Correo electrónico"
                   required
+                  autoComplete="off"
                 />
 
                 <input
@@ -106,6 +115,7 @@ export const InfoUser = () => {
                   className="form-control mt-3 mt-md-0"
                   placeholder="Numero teléfonico"
                   required
+                  autoComplete="off"
                 />
 
                 <input
@@ -114,9 +124,9 @@ export const InfoUser = () => {
                   type="text"
                   name="card"
                   className="form-control mt-3 mt-md-0"
-                  pattern="[0-9]{13,19}"
                   placeholder="1234 5678 9012 3456"
                   required
+                  autoComplete="off"
                 />
               </Col>
               <Col lg="6">
@@ -136,8 +146,10 @@ export const InfoUser = () => {
             {items.length === 0 ? (
               <></>
             ) : (
-              <div style={{ display: "flex", justifyContent: "end" }}>
+              <div style={{ display: "flex", justifyContent: "center", paddingTop:"1em"}}>
                 <button
+                className="comprar"
+                  type="button"
                   onClick={() => {
                     sendOrder();
                   }}

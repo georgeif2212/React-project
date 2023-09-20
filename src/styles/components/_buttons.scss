@@ -1,4 +1,4 @@
-button {
+.comprar {
   --color: #f5ae51;
   font-family: inherit;
   display: inline-block;
@@ -6,7 +6,7 @@ button {
   height: 2.3em;
   line-height: 2.5em;
   overflow: hidden;
-  margin: 20px;
+  
   font-size: 17px;
   z-index: 1;
   color: var(--color);
@@ -15,7 +15,7 @@ button {
   position: relative;
 }
 
-button::before {
+.comprar::before {
   position: absolute;
   content: "";
   background: var(--color);
@@ -25,17 +25,17 @@ button::before {
   border-radius: 50%;
 }
 
-button:hover {
+.comprar:hover {
   color: white;
 }
 
-button:before {
+.comprar:before {
   top: 100%;
   left: 100%;
   transition: 0.3s all;
 }
 
-button:hover::before {
+.comprar:hover::before {
   top: -30px;
   left: -30px;
 }

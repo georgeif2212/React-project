@@ -19,6 +19,7 @@ export const Item = ({ product }) => {
       <img
         src={product.imagen}
         style={{ objectFit: "contain", width: "100%", height: "50%" }}
+        alt=""
       />
 
       <div className="item-info">
@@ -36,7 +37,7 @@ export const Item = ({ product }) => {
 
         <div className="d-flex justify-content-end">
           <Link to={`/item/${product.id}`}>
-            <button className="compra">
+            <button className="comprar">
               Ver más
             </button>
           </Link>

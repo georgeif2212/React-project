@@ -1,6 +1,6 @@
 export const SummaryCart = ({ items, total, shippingCosts, discount }) => {
   return (
-    <div className="cart-summary py-4">
+    <div className="cart-summary">
       {items.length === 0 ? (
         <>
           <h3 className="color-2 size-medium_m ">Resumen</h3>

@@ -55,7 +55,7 @@ export const Cart = () => {
           ) : (
             <div className="d-flex justify-content-center">
               <Link to={"/cart/infoUser"}>
-                <button>Continuar</button>
+                <button className="comprar">Continuar</button>
               </Link>
             </div>
           )}
