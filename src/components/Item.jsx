@@ -36,8 +36,8 @@ export const Item = ({ product }) => {
 
         <div className="d-flex justify-content-end">
           <Link to={`/item/${product.id}`}>
-            <button className="compra" role="button">
-              ¡Comprar!
+            <button className="compra">
+              Ver más
             </button>
           </Link>
         </div>

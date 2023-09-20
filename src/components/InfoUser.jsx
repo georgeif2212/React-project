@@ -7,6 +7,8 @@ import { useContext } from "react";
 import { CartContext } from "../contexts/CartContext";
 import { CreditCardWidget } from "./Widgets/CreditCardWidget";
 import { SummaryCart } from "./SummaryCart";
+import React from "react";
+import {notificacion,error} from "./toasts/Toasts"
 
 export const InfoUser = () => {
   const { items, clear, total, shippingCosts, discount } =
@@ -36,12 +38,14 @@ export const InfoUser = () => {
         if (id) {
           setFormValues({ name: "", phone: "", email: "", card: "" });
           clear();
+          notificacion();
         }
       });
     } else {
-      alert("Faltaron campos por llenar");
+      error();
     }
   };
+
   const validateForm = () => {
     const { name, phone, email, card } = formValues;
 
@@ -133,7 +137,13 @@ export const InfoUser = () => {
               <></>
             ) : (
               <div style={{ display: "flex", justifyContent: "end" }}>
-                <button onClick={() => sendOrder()}>Comprar</button>
+                <button
+                  onClick={() => {
+                    sendOrder();
+                  }}
+                >
+                  Comprar
+                </button>
               </div>
             )}
           </Col>
