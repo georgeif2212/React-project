@@ -24,14 +24,15 @@ function App() {
             element={<ItemListContainer greeting="¡Bienvenido!" />}
           />
           <Route path="/cart" element={<Cart />} />
-          <Route path="/cart/InfoShop/:id" element={<InfoShopContainer/>} />
+          
           <Route path="/cart/infoUser" element={<InfoUser />} />
           <Route
             path="/categoryid/:id"
             element={<ItemListContainer greeting="Categoría: " />}
           />
           <Route path="/item/:id" element={<ItemDetailContainer />} />
-          <Route path="*" element={<h2>Página no encontrada</h2>} />
+          <Route path="/InfoShop/:id" element={<InfoShopContainer/>} />
+          <Route path="*" element={<h1>Página no encontrada</h1>} />
         </Routes>
         <Footer />
       </BrowserRouter>

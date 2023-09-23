@@ -1,0 +1,23 @@
+.purchase{
+  padding: 1em;
+  border: 1px solid #ddd9cc;
+  &-buyer{
+    display: flex;
+    flex-flow: column;
+    align-items: end;
+    p{
+      margin-bottom: 5px;
+      padding-top: 5px;
+    }
+    &__text{
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  &-total{
+    display: flex;
+    justify-content: end;
+  }
+
+}

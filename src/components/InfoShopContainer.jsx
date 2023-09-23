@@ -13,7 +13,6 @@ export const InfoShopContainer = () => {
   useEffect(() => {
     const db = getFirestore();
     const refDoc = doc(db, "orders", id);
-
     getDoc(refDoc)
       .then((snapshot) => {
         if (snapshot.exists()) {
@@ -32,7 +31,7 @@ export const InfoShopContainer = () => {
 
   if (loading) return <Spinner />;
   return (
-    <Container style={{ minHeight: "70vh" }}>
+    <Container style={{ minHeight: "70vh", marginBottom:"3em"}}>
       <h1
         style={{ fontWeight: "500" }}
         className="color-1 size-large_s pt-4 mb-2"
@@ -40,6 +39,7 @@ export const InfoShopContainer = () => {
         Resumen de tus compras:
       </h1>
       <InfoShop purchase={purchase} />
+      
     </Container>
   );
 };
