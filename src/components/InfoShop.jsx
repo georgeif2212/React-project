@@ -1,10 +1,18 @@
 import { CartItem } from "./CartItem";
+import { useParams } from "react-router-dom";
 
 export const InfoShop = ({ purchase }) => {
   const { total, items, buyer } = purchase;
+  const { id } = useParams();
   return (
     <article className="purchase">
       <div className="purchase-buyer">
+        <div className="purchase-buyer__text borderBottom">
+          <p>ID de compra</p>
+          <p className="size-medium_s" style={{ fontWeight: "500" }}>
+            {id}
+          </p>
+        </div>
         <div className="purchase-buyer__text borderBottom">
           <p>Cliente:</p>
           <p className="size-medium_s" style={{ fontWeight: "500" }}>
