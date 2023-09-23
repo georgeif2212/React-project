@@ -1,4 +1,7 @@
-export const CartItem = ({ item, removeItem }) => {
+import { useState } from "react";
+
+export const CartItem = ({ item, removeItem, showAction }) => {
+  const [showActionState] = useState(showAction);
   return (
     <article className="cartItem" key={item.id}>
       <img className="cartItem__img" src={item.imagen} alt="" />
@@ -9,14 +12,17 @@ export const CartItem = ({ item, removeItem }) => {
               {item.nombre}
             </h2>
             <p className="color-2 size-small_l mb-1">{item.description}</p>
-
-            <p
-              style={{ width: "auto" }}
-              className="color-1 size-medium_s mb-1 cartItem-info__action"
-              onClick={() => removeItem(item.id)}
-            >
-              Eliminar producto
-            </p>
+            {showActionState ? (
+              <p
+                style={{ width: "auto" }}
+                className="color-1 size-medium_s mb-1 cartItem-info__action"
+                onClick={() => removeItem(item.id)}
+              >
+                Eliminar producto
+              </p>
+            ) : (
+              <></>
+            )}
           </div>
           <div
             style={{

@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getFirestore, getDoc, doc } from "firebase/firestore";
 import { ItemDetail } from "./ItemDetail";
-import data from "../data.json";
 import { Spinner } from "./Spinner";
 
 export const ItemDetailContainer = () => {
@@ -11,18 +10,6 @@ export const ItemDetailContainer = () => {
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
 
-  // useEffect(() => {
-  //   const promise = new Promise((resolve, reject) => {
-  //     setTimeout(() => {
-  //       const productById = data.find((product) => product.id === id);
-  //       resolve(productById);
-  //     }, 1000);
-  //   });
-  //   promise.then((data) => {
-  //     setProduct(data);
-  //     setLoading(false);
-  //   });
-  // }, []);
 
   // ! UseEffect con FireBase
   useEffect(() => {
@@ -32,7 +19,7 @@ export const ItemDetailContainer = () => {
       setProduct({ id: snapshot.id, ...snapshot.data() });
       setLoading(false)
     });
-  },[]);
+  });
 
   if (loading) return <Spinner/>
 

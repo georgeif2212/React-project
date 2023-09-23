@@ -7,8 +7,23 @@ import { CartItem } from "./CartItem";
 import { Link } from "react-router-dom";
 import { EmptyCart } from "./EmptyCart";
 import { SummaryCart } from "./SummaryCart";
+import SweetAlert2 from "react-sweetalert2";
+import { useState } from "react";
 
 export const Cart = () => {
+  const [swalProps, setSwalProps] = useState({});
+  function vaciarCarrito() {
+    setSwalProps({
+      show: true,
+      title: "¿Seguro quieres vaciar el carrito?",
+      showCancelButton: true,
+      confirmButtonColor: "#00a650",
+      cancelButtonColor: "#B7B7B7",
+      confirmButtonText: "Vaciar carrito",
+      backdrop: "rgba(39, 56, 245, 0.18)",
+    });
+  }
+
   const { items, removeItem, clear, total, shippingCosts, discount } =
     useContext(CartContext);
 
@@ -27,7 +42,12 @@ export const Cart = () => {
           ) : (
             <>
               {items.map((item) => (
-                <CartItem key={item.id} item={item} removeItem={removeItem} />
+                <CartItem
+                  key={item.id}
+                  item={item}
+                  removeItem={removeItem}
+                  showAction={true}
+                />
               ))}
               <p
                 className="cartItem-info__action"
@@ -36,10 +56,22 @@ export const Cart = () => {
                   justifyContent: "flex-end",
                   cursor: "pointer",
                 }}
-                onClick={() => clear()}
+                onClick={() => {
+                  vaciarCarrito();
+                  // clear();
+                }}
               >
                 Vaciar carrito
               </p>
+              <SweetAlert2
+                {...swalProps}
+                onConfirm={() => {
+                  clear();
+                }}
+                didClose={() => {
+                  setSwalProps({});
+                }}
+              />
             </>
           )}
         </Col>

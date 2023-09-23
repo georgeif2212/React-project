@@ -10,6 +10,7 @@ import { Footer } from "./components/Footer";
 import React from "react";
 import { ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import { InfoShopContainer } from "./components/InfoShopContainer";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             element={<ItemListContainer greeting="¡Bienvenido!" />}
           />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/cart/InfoShop/:id" element={<InfoShopContainer/>} />
           <Route path="/cart/infoUser" element={<InfoUser />} />
           <Route
             path="/categoryid/:id"
