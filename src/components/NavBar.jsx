@@ -41,6 +41,13 @@ export const NavBar = () => {
             >
               Electrónicos
             </Nav.Link>
+            <Nav.Link
+              className="navbar-links"
+              as={Link}
+              to="/purchaseSearch"
+            >
+              Buscar mi compra
+            </Nav.Link>
           </Nav>
           <CartWidget />
         </Container>

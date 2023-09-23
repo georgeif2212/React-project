@@ -31,7 +31,7 @@ export const CartItem = ({ item, removeItem, showAction }) => {
             width: "150px",
           }}
         >
-          <p style={{ display: "flex", justifyContent: "end" }}>
+          <p style={{ display: "flex", justifyContent: "flex-end" }}>
             Cantidad: {item.quantity}
           </p>
 

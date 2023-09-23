@@ -41,7 +41,7 @@ export const InfoUser = () => {
         if (id) {
           setFormValues({ name: "", phone: "", email: "", card: "" });
           clear();
-          navigate(`/InfoShop/${id}`);
+          navigate(`/infoShop/${id}`);
           notificacion();
         } else {
           error();

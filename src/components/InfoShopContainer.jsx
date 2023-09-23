@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import { getFirestore, getDoc, doc } from "firebase/firestore";
 import { Spinner } from "./Spinner";
 import { InfoShop } from "./InfoShop";
+import { Link } from "react-router-dom";
+import { ErrorCart } from "./Widgets/ErrorCart";
 
 export const InfoShopContainer = () => {
   const { id } = useParams();
@@ -18,7 +20,7 @@ export const InfoShopContainer = () => {
         if (snapshot.exists()) {
           setPurchase(snapshot.data());
         } else {
-          console.log("El documento no existe.");
+          setPurchase(null);
         }
       })
       .catch((error) => {
@@ -31,15 +33,38 @@ export const InfoShopContainer = () => {
 
   if (loading) return <Spinner />;
   return (
-    <Container style={{ minHeight: "70vh", marginBottom:"3em"}}>
-      <h1
-        style={{ fontWeight: "500" }}
-        className="color-1 size-large_s pt-4 mb-2"
-      >
-        Resumen de tus compras:
-      </h1>
-      <InfoShop purchase={purchase} />
-      
+    <Container style={{ minHeight: "70vh", marginBottom: "3em" }}>
+      {purchase !== null ? (
+        <>
+          <h1
+            style={{ fontWeight: "500" }}
+            className="color-1 size-large_s pt-4 mb-2"
+          >
+            Resumen de tus compras:
+          </h1>
+          <InfoShop purchase={purchase} />
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "flex-end",
+              paddingTop: "2em",
+            }}
+          >
+            <Link to={"/"}>
+              <button className="comprar">Aceptar</button>
+            </Link>
+          </div>
+        </>
+      ) : (
+        <div style={{display:"flex",flexFlow:"column",alignItems:"center", alignContent:"center"}}>
+          <h1 className="color-1" style={{ paddingTop: "1em" }}>No pudimos encontrar tu compra</h1>
+          <p className="color-2">Asegurate de introducir correctamente el ID</p>
+          <ErrorCart width={"300px"}/>
+          <Link to={"/purchaseSearch"}>
+              <button className="comprar">Aceptar</button>
+            </Link>
+        </div>
+      )}
     </Container>
   );
 };

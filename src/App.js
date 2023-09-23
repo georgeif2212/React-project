@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
 import { ItemListContainer } from "./components/ItemListContainer";
 import { ItemDetailContainer } from "./components/ItemDetailContainer";
 import { NavBar } from "./components/NavBar";
@@ -11,6 +10,7 @@ import React from "react";
 import { ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import { InfoShopContainer } from "./components/InfoShopContainer";
+import { PurchaseSearch } from "./components/PurchaseSearch";
 
 function App() {
   return (
@@ -32,6 +32,7 @@ function App() {
           />
           <Route path="/item/:id" element={<ItemDetailContainer />} />
           <Route path="/InfoShop/:id" element={<InfoShopContainer/>} />
+          <Route path="/purchaseSearch" element={<PurchaseSearch/>} />
           <Route path="*" element={<h1>Página no encontrada</h1>} />
         </Routes>
         <Footer />

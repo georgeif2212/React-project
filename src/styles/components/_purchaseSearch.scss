@@ -1,0 +1,10 @@
+.purchaseSearch {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  &-input{
+    display: flex;
+    gap: 3em;
+    width: 60vw;
+  }
+}

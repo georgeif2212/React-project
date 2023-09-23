@@ -1,4 +1,3 @@
-import { Container } from "react-bootstrap";
 import { CartItem } from "./CartItem";
 
 export const InfoShop = ({ purchase }) => {
@@ -26,8 +25,11 @@ export const InfoShop = ({ purchase }) => {
         </div>
       </div>
       <div className="purchase-items">
-        <p className="size-medium_m" style={{paddingTop:"1em", fontWeight: "500" }}>
-          Articulos comprados:{" "}
+        <p
+          className="size-medium_m"
+          style={{ paddingTop: "1em", fontWeight: "500" }}
+        >
+          Articulos comprados:
         </p>
         {items.map((item) => (
           <CartItem key={item.id} item={item} showAction={false} />
