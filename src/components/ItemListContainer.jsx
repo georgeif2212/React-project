@@ -15,6 +15,14 @@ export const ItemListContainer = (props) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
+  const categoryMapping = {
+    ropaMujeres: "Damas",
+    ropaHombres: "Caballeros",
+    tecnologia: "Eléctronicos",
+    joyeria: "Joyería",
+  };
+
+  const category = categoryMapping[id] || props.greeting;
 
   // ! USEEFFECT CON FIREBASE
   useEffect(() => {
@@ -40,12 +48,12 @@ export const ItemListContainer = (props) => {
         setLoading(false);
       });
   }, [id]);
-
   if (loading) return <Spinner />;
 
   return (
     <Container style={{ minHeight: "70vh" }} className="mt-3">
-      <h1>{props.greeting}</h1>
+      <h1>{category}</h1>
+
       <section className="items pb-5">
         <ItemList products={products} />
       </section>

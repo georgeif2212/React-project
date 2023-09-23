@@ -42,6 +42,7 @@ export const NavBar = () => {
               Electrónicos
             </Nav.Link>
             <Nav.Link
+              style={{ fontWeight: "500" }}
               className="navbar-links"
               as={Link}
               to="/purchaseSearch"
