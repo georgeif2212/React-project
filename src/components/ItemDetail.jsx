@@ -30,6 +30,9 @@ export const ItemDetail = ({ product }) => {
             {product.description}
           </p>
           <ItemCount stock={product.stock} onAdd={onAdd} />
+          <div style={{ display: "flex", justifyContent:"center" }}>
+            <p className="color-2 size-small_l">Stock: {product.stock}</p>
+          </div>
         </div>
       </article>
     </Container>
