@@ -18,6 +18,7 @@ export const CartProvider = ({ children }) => {
       total() * 0.08
     );
     setDiscount(calculatedDiscount);
+     // eslint-disable-next-line
   }, [items]);
   
   const addItem = (producto, quantity) => {

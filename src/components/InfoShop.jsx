@@ -13,7 +13,7 @@ export const InfoShop = ({ purchase }) => {
         <CartItem key={item.id} item={item} showAction={false} />
       ))}
       <h2>Total</h2>
-      <p>El total de tu compra fue: {total}</p>
+      <p>El total de tu compra fue: {total.toFixed(2)}</p>
     </Container>
   );
 };

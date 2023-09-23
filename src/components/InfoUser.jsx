@@ -32,7 +32,7 @@ export const InfoUser = () => {
     const order = {
       buyer: formValues,
       items: items,
-      total: total(),
+      total: (total()+shippingCosts-1*(discount).toFixed(2)),
     };
     if (validateForm()) {
       const db = getFirestore();
