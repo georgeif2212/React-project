@@ -1,75 +1,63 @@
-<<<<<<< HEAD
-# Getting Started with Create React App
+# Proyecto de E-commerce en React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este proyecto es un e-commerce desarrollado en React como parte del curso. En él, se utilizaron las siguientes tecnologías y características:
 
-## Available Scripts
+- **React**: El proyecto se desarrolló utilizando el framework de JavaScript React.
 
-In the project directory, you can run:
+- **useEffect** y **useState**: Se emplearon estos hooks de React para gestionar el ciclo de vida de los componentes y el estado de la aplicación.
 
-### `npm start`
+- **useParams**: Se utilizó `useParams` para acceder a los parámetros de las rutas y así dinamizar la visualización de datos.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Firebase**: Se estableció una conexión con Firebase para crear colecciones de compras que los clientes pueden realizar. También se gestionaron los ítems que los clientes pueden comprar a través de Firebase.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **useContext**: Para gestionar el carrito de compras y compartir datos entre componentes, se utilizó el hook `useContext`.
 
-### `npm test`
+- **React Router DOM**: Se implementó React Router DOM para la navegación entre componentes, utilizando `Link`, `Navigate`, y configurando las rutas de la aplicación.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Props**: Se emplearon props para pasar datos entre componentes, permitiendo la reutilización de componentes y la comunicación entre ellos.
 
-### `npm run build`
+- **Funciones como map y length**: Se utilizaron funciones como `map` para iterar sobre listas de datos y `length` para determinar la cantidad de elementos en una lista, entre otras.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **SCSS**: Se personalizaron los estilos de cada componente utilizando SCSS para mejorar la presentación y el aspecto visual de la aplicación.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Instrucciones de Instalación
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Para ejecutar este proyecto en tu entorno local, sigue estos pasos:
 
-### `npm run eject`
+1. Clona este repositorio:
+```shell
+   git clone "https://github.com/georgeif2212/React-project.git" 
+```  
+2. Navega al directorio del proyecto:
+```shell
+    cd React-project
+```
+3. Instala las dependencias
+```shell
+    npm install
+```
+4. Inicia la aplicación
+```shell
+    npm start
+```
+## Estructura de Directorios
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+La estructura de directorios del proyecto se organiza de la siguiente manera:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+├───assets
+├───components
+│   ├───toasts
+│   └───Widgets
+├───contexts
+└───styles
+    ├───components
+    └───utilities
+```
+## Contacto
+Si tienes alguna pregunta o comentario sobre el proyecto, no dudes en ponerte en contacto conmigo a través de mi perfil de GitHub.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+    https://github.com/georgeif2212
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-# React-project
-New project using react library
 
